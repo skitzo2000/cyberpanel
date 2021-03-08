@@ -1,0 +1,36 @@
+CC=		@@CC@@
+BASECFLAGS=	@@CFLAGS@@ -O0 -g3
+CPPFLAGS=	-I. -I@@INCLUDEPY@@
+DEFINES=	@@DEFINES@@
+CFLAGS=		$(BASECFLAGS) $(CPPFLAGS) $(DEFINES)
+LIBPL=		@@LIBPL@@
+LDFLAGS=	@@LDFLAGS@@
+LINKFORSHARED=	@@LINKFORSHARED@@
+LIBS=		@@LIBS@@
+SYSLIBS=	@@SYSLIBS@@
+VERSION=	@@VERSION@@
+
+OBJS=		main.o wsgi.o wsgiinput.o wsgiwrapper.o lsapilib.o lsapi-glue.o
+
+all: lswsgi
+
+lswsgi: $(OBJS)
+	$(CC) $(LDFLAGS) $(LINKFORSHARED) -o $@ $(OBJS) -L$(LIBPL) -lpython$(VERSION) $(LIBS) $(SYSLIBS)
+
+main.o: main.c  wsgi.h version.h
+
+lsapilib.o: lsapilib.c lsapilib.h
+
+wsgi.o: wsgi.c wsgi-int.h wsgi.h
+
+wsgiinput.o: wsgiinput.c wsgi-int.h wsgi.h
+
+wsgiwrapper.o: wsgiwrapper.c wsgi-int.h wsgi.h
+
+lsapi-glue.o: lsapi-glue.c 
+
+clean:
+	rm -f lswsgi *.o core *.core
+
+distclean: clean
+	rm -f Python.framework Makefile

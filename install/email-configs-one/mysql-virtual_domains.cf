@@ -1,5 +1,5 @@
 user = cyberpanel
-password = 1qaz@9xvps
+password = 88FvovghVJJWnA
 dbname = cyberpanel
 query = SELECT domain AS virtual FROM e_domains WHERE domain='%s'
 hosts = localhost

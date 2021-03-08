@@ -93,8 +93,8 @@ def get_Ubuntu_release():
 
 class preFlightsChecks:
     debug = 1
-    cyberPanelMirror = "mirror.cyberpanel.net/pip"
-    cdn = 'cyberpanel.sh'
+    cyberPanelMirror = "cdn.cyberpanel.sh/pip"
+    cdn = 'cdn.cyberpanel.sh'
 
     def __init__(self, rootPath, ip, path, cwd, cyberPanelPath, distro, remotemysql = None , mysqlhost = None, mysqldb = None, mysqluser = None, mysqlpassword = None, mysqlport = None):
         self.ipAddr = ip
@@ -371,7 +371,7 @@ class preFlightsChecks:
 
         os.chdir('/usr/local')
 
-        command = "git clone https://github.com/usmannasir/cyberpanel"
+        command = "echo downloaded"
         preFlightsChecks.call(command, self.distro, command, command, 1, 1, os.EX_OSERR)
 
         shutil.move('cyberpanel', 'CyberCP')
@@ -1787,10 +1787,10 @@ imap_folder_list_limit = 0
             command = "pip uninstall --yes requests"
             preFlightsChecks.call(command, self.distro, command, command, 1, 0, os.EX_OSERR)
 
-            command = "pip install http://mirror.cyberpanel.net/urllib3-1.22.tar.gz"
+            command = "pip install http://cdn.cyberpanel.sh/urllib3-1.22.tar.gz"
             preFlightsChecks.call(command, self.distro, command, command, 1, 0, os.EX_OSERR)
 
-            command = "pip install http://mirror.cyberpanel.net/requests-2.18.4.tar.gz"
+            command = "pip install http://cdn.cyberpanel.sh/requests-2.18.4.tar.gz"
             preFlightsChecks.call(command, self.distro, command, command, 1, 0, os.EX_OSERR)
 
     def installation_successfull(self):

@@ -87,20 +87,20 @@ class InstallCyberPanel:
                 except:
                     pass
 
-                command = 'wget https://www.litespeedtech.com/packages/5.0/lsws-5.4.2-ent-x86_64-linux.tar.gz'
+                command = 'wget https://www.litespeedtech.com/packages/5.0/lsws-5.4.11-ent-x86_64-linux.tar.gz'
                 install.preFlightsChecks.call(command, self.distro, command, command, 1, 1, os.EX_OSERR)
 
-                command = 'tar zxf lsws-5.4.2-ent-x86_64-linux.tar.gz'
+                command = 'tar zxf lsws-5.4.11-ent-x86_64-linux.tar.gz'
                 install.preFlightsChecks.call(command, self.distro, command, command, 1, 1, os.EX_OSERR)
 
-                writeSerial = open('lsws-5.4.2/serial.no', 'w')
+                writeSerial = open('lsws-5.4.11/serial.no', 'w')
                 writeSerial.writelines(self.serial)
                 writeSerial.close()
 
-                shutil.copy('litespeed/install.sh', 'lsws-5.3.5/')
-                shutil.copy('litespeed/functions.sh', 'lsws-5.3.5/')
+                shutil.copy('litespeed/install.sh', 'lsws-5.4.11/')
+                shutil.copy('litespeed/functions.sh', 'lsws-5.4.11/')
 
-                os.chdir('lsws-5.3.5')
+                os.chdir('lsws-5.4.11')
 
                 command = 'chmod +x install.sh'
                 install.preFlightsChecks.call(command, self.distro, command, command, 1, 1, os.EX_OSERR)
@@ -516,6 +516,8 @@ class InstallCyberPanel:
 
                 # try:
                 #     f = open('/etc/resolv.conf', 'a')
+                command = 'cat /etc/resolv.conf-tmp > /etc/resolv.conf'
+                subprocess.call(command, shell=True)
                 #     f.write('nameserver 8.8.8.8')
                 #     f.close()
                 # except IOError as e:
