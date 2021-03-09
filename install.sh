@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#Add DO_VOL
+
+#curl https://github.com/skitzo2000/cyberpanel/raw/stable/install.sh
+#chmod +x install.sh
+#./install.sh DO_VOL
+
 OUTPUT=$(cat /etc/*release)
 if  echo $OUTPUT | grep -q "CentOS Linux 7" ; then
         echo "Checking and installing curl and wget"
@@ -29,8 +35,12 @@ else
                 exit 1
 fi
 
+if ($1 != null)
+        DO_VOL = $1
+fi
+
 rm -f cyberpanel.sh
 rm -f install.tar.gz
-curl --silent -o cyberpanel.sh "https://github.com/skitzo2000/cyberpanel/raw/stable/install.sh" 2>/dev/null
+curl --silent -o cyberpanel.sh "https://github.com/skitzo2000/cyberpanel/raw/stable/cyberpanel.sh" 2>/dev/null
 chmod +x cyberpanel.sh
 ./cyberpanel.sh $@
