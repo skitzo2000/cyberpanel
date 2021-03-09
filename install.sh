@@ -35,11 +35,14 @@ else
                 exit 1
 fi
 
+DO_VOL = $1
+
 if [ ! -n "$1"]  ; then
         echo "no DO volume given"
 else
-        echo "DO Volume = " $1
-        DO_VOL = $1
+
+        echo "DO Volume = " $DO_VOL
+        
 fi
 
 rm -f cyberpanel.sh
