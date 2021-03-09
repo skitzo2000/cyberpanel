@@ -2,7 +2,7 @@
 
 #Add DO_VOL
 
-#curl https://github.com/skitzo2000/cyberpanel/raw/stable/install.sh
+#curl https://github.com/skitzo2000/cyberpanel/raw/co-brand/install.sh
 #chmod +x install.sh
 #./install.sh DO_VOL
 
@@ -41,6 +41,6 @@ fi
 
 rm -f cyberpanel.sh
 rm -f install.tar.gz
-curl --silent -o cyberpanel.sh "https://github.com/skitzo2000/cyberpanel/raw/stable/install.sh" 2>/dev/null
+curl --silent -o cyberpanel.sh "https://github.com/skitzo2000/cyberpanel/raw/co-brand/cyberpanel.sh" 2>/dev/null
 chmod +x cyberpanel.sh
 ./cyberpanel.sh $@
