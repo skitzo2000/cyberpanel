@@ -2,7 +2,7 @@
 
 #Add DO_VOL
 
-#wget -o install.sh  https://github.com/skitzo2000/cyberpanel/raw/co-brand/install.sh
+#wget -O install.sh  https://github.com/skitzo2000/cyberpanel/raw/co-brand/install.sh
 #chmod +x install.sh
 #./install.sh DO_VOL
 
@@ -35,7 +35,7 @@ else
                 exit 1
 fi
 
-if ($1 != null)
+if $1 != null ; then
         DO_VOL = $1
 fi
 
