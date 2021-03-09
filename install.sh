@@ -35,9 +35,9 @@ else
                 exit 1
 fi
 
-DO_VOL = $1
+DO_VOL=$1
 
-if [ ! -n "$1"]  ; then
+if [ ! -n "$DO_VOL"]  ; then
         echo "no DO volume given"
 else
 
