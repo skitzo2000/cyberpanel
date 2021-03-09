@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#Add DO_VOL
+
+#curl https://github.com/skitzo2000/cyberpanel/raw/stable/install.sh
+#chmod +x install.sh
+#./install.sh DO_VOL
+
 OUTPUT=$(cat /etc/*release)
 if  echo $OUTPUT | grep -q "CentOS Linux 7" ; then
         echo "Checking and installing curl and wget"
@@ -27,6 +33,10 @@ else
                 echo -e "\nUnable to detect your OS...\n"
                 echo -e "\nCyberPanel is supported on Ubuntu 18.04, CentOS 7.x and CloudLinux 7.x...\n"
                 exit 1
+fi
+
+if ($1 != null)
+        DO_VOL = $1
 fi
 
 rm -f cyberpanel.sh
