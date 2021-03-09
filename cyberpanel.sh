@@ -36,7 +36,13 @@ WATCHDOG="OFF"
 VIRT_TYPE=""
 MASTER_GIT_URL="github.com/skitzo2000/cyberpanel"
 DO_VOL=$2
-echo 'Digital Ocean Volume = '.$2
+if ($DO_VOL!=null)
+  echo 'Digital Ocean Volume = '.$DO_VOL
+  cp -rp /home /mnt/$DO_VOL
+  rm -r /home
+  mount --bind --verbose /mnt/$DO_VOL /home
+  echo "/mnt/$DO_VOL /home none bind"
+fi
 
 set_git_repos_and_branch() {
   local GIT_DIR
