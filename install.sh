@@ -35,7 +35,7 @@ else
                 exit 1
 fi
 
-if $1 != null ; then
+if test -z "$1" ; then
         DO_VOL = $1
 fi
 
