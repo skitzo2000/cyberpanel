@@ -10,8 +10,8 @@ MYSQLCurrentVersion=$(systemctl status mysql)
 MYSQLPassword=$(cat /etc/cyberpanel/mysqlPassword)
 TEMP=$(curl --silent https://cyberpanel.net/version.txt)
 BRANCH_NAME=v${TEMP:12:3}.${TEMP:25:1}
-GIT_URL="github.com/usmannasir/cyberpanel"
-GIT_CONTENT_URL="raw.githubusercontent.com/usmannasir/cyberpanel"
+GIT_URL="github.com/skitzo2000/cyberpanel"
+GIT_CONTENT_URL="raw.githubusercontent.com/skitzo2000/cyberpanel"
 SERVER_COUNTRY="unknow"
 SERVER_COUNTRY=$(curl --silent --max-time 5 https://cyberpanel.sh/?country)
 UBUNTU_20="False"
@@ -326,7 +326,7 @@ else
 fi
 
 rm -f requirments.txt
-wget https://raw.githubusercontent.com/usmannasir/cyberpanel/$BRANCH_NAME/requirments.txt
+wget https://raw.githubusercontent.com/skitzo2000/cyberpanel/$BRANCH_NAME/requirments.txt
 
 #if [[ $UBUNTU_20 == "False" ]]; then
 #  wget -O /usr/local/cyberpanel-pip.zip https://rep.cyberpanel.net/cyberpanel-pip-3.zip
@@ -370,11 +370,11 @@ rm -rf upgrade.py
 wget https://$GIT_CONTENT_URL/${BRANCH_NAME}/plogical/upgrade.py
 
 if [[ $SERVER_COUNTRY == "CN" ]]; then
-  sed -i 's|wget  https://raw.githubusercontent.com/usmannasir/cyberpanel/v1.9.4/lscpd-0.2.4 -P /usr/local/lscp/bin/|cp -f /usr/local/CyberCP/lscpd-0.2.4 /usr/local/lscp/bin/lscpd-0.2.4|g' upgrade.py
-  sed -i 's|wget  https://raw.githubusercontent.com/usmannasir/cyberpanel/%s/lscpd-0.2.4 -P /usr/local/lscp/bin/|cp -f /usr/local/CyberCP/lscpd-0.2.4 /usr/local/lscp/bin/lscpd-0.2.4|g' upgrade.py
+  sed -i 's|wget  https://raw.githubusercontent.com/skitzo2000/cyberpanel/v1.9.4/lscpd-0.2.4 -P /usr/local/lscp/bin/|cp -f /usr/local/CyberCP/lscpd-0.2.4 /usr/local/lscp/bin/lscpd-0.2.4|g' upgrade.py
+  sed -i 's|wget  https://raw.githubusercontent.com/skitzo2000/cyberpanel/%s/lscpd-0.2.4 -P /usr/local/lscp/bin/|cp -f /usr/local/CyberCP/lscpd-0.2.4 /usr/local/lscp/bin/lscpd-0.2.4|g' upgrade.py
   #sed -i $'s/0.2.4\' % (branch)/0.2.4\'/' upgrade.py
-  sed -i 's|raw.githubusercontent.com/usmannasir/cyberpanel|'${GIT_CONTENT_URL}'|g' upgrade.py
-  sed -i 's|git clone https://github.com/usmannasir/cyberpanel|git clone https://'${GIT_URL}'|g' upgrade.py
+  sed -i 's|raw.githubusercontent.com/skitzo2000/cyberpanel|'${GIT_CONTENT_URL}'|g' upgrade.py
+  sed -i 's|git clone https://github.com/skitzo2000/cyberpanel|git clone https://'${GIT_URL}'|g' upgrade.py
 fi
 
 /usr/local/CyberPanel/bin/python upgrade.py $BRANCH_NAME
@@ -393,7 +393,7 @@ fi
 check_return
 
 rm -f requirments.txt
-wget https://raw.githubusercontent.com/usmannasir/cyberpanel/$BRANCH_NAME/requirments.txt
+wget https://raw.githubusercontent.com/skitzo2000/cyberpanel/$BRANCH_NAME/requirments.txt
 
 if [ $SERVER_OS = "Ubuntu" ]; then
   . /usr/local/CyberCP/bin/activate

@@ -1,7 +1,4 @@
 #!/bin/bash
-
-#CyberPanel installer script for CentOS 7.X, CentOS 8.X, CloudLinux 7.X, Ubuntu 18.04 and Ubuntu 20.04
-
 SUDO_TEST=$(set)
 
 DEV="OFF"
@@ -37,7 +34,7 @@ CENTOS_8="False"
 UBUNTU_20="False"
 WATCHDOG="OFF"
 VIRT_TYPE=""
-MASTER_GIT_URL="github.com/usmannasir/cyberpanel"
+MASTER_GIT_URL="github.com/skitzo2000/cyberpanel"
 
 set_git_repos_and_branch() {
   local GIT_DIR
@@ -230,7 +227,7 @@ license_validation() {
 special_change() {
   sed -i 's|cyberpanel.sh|'$DOWNLOAD_SERVER'|g' install.py
   sed -i 's|mirror.cyberpanel.net|'$DOWNLOAD_SERVER'|g' install.py
-  sed -i 's|git clone https://github.com/usmannasir/cyberpanel|echo downloaded|g' install.py
+  sed -i 's|git clone https://github.com/skitzo2000/cyberpanel|echo downloaded|g' install.py
 
   #change to CDN first, regardless country
   #sed -i 's|http://|https://|g' install.py
@@ -276,7 +273,7 @@ EOF
   #seems Alibaba cloud , other than CN , also requires change on ubuntu.
 
   if [[ $SERVER_COUNTRY == "CN" ]]; then
-    #line1="$(grep -n "github.com/usmannasir/cyberpanel" install.py | head -n 1 | cut -d: -f1)"
+    #line1="$(grep -n "github.com/skitzo2000/cyberpanel" install.py | head -n 1 | cut -d: -f1)"
     #line2=$((line1 - 1))
     #sed -i "${line2}i\ \ \ \ \ \ \ \ subprocess.call(command, shell=True)" install.py
     #sed -i "${line2}i\ \ \ \ \ \ \ \ command = 'tar xzvf cyberpanel-git.tar.gz'" install.py
@@ -289,7 +286,7 @@ EOF
     sed -i 's|https://copr.fedorainfracloud.org/coprs/copart/restic/repo/epel-7/copart-restic-epel-7.repo|https://'$DOWNLOAD_SERVER'/restic/restic.repo|g' install.py
     sed -i 's|yum -y install http://cyberpanel.sh/gf-release-latest.gf.el7.noarch.rpm|wget -O /etc/yum.repos.d/gf.repo https://'$DOWNLOAD_SERVER'/gf-plus/gf.repo|g' install.py
     sed -i 's|dovecot-2.3-latest|dovecot-2.3-latest-mirror|g' install.py
-    sed -i 's|git clone https://github.com/usmannasir/cyberpanel|wget https://cyberpanel.sh/cyberpanel-git.tar.gz \&\& tar xzvf cyberpanel-git.tar.gz|g' install.py
+    sed -i 's|git clone https://github.com/skitzo2000/cyberpanel|wget https://cyberpanel.sh/cyberpanel-git.tar.gz \&\& tar xzvf cyberpanel-git.tar.gz|g' install.py
     sed -i 's|http://repo.dovecot.org/ce-2.3-latest/centos/$releasever/RPMS/$basearch|https://'$DOWNLOAD_SERVER'/dovecot/|g' install.py
     sed -i 's|'$DOWNLOAD_SERVER'|cyberpanel.sh|g' install.py
     sed -i 's|https://www.litespeedtech.com/packages/5.0/lsws-5.4.2-ent-x86_64-linux.tar.gz|https://'$DOWNLOAD_SERVER'/litespeed/lsws-'$LSWS_STABLE_VER'-ent-x86_64-linux.tar.gz|g' installCyberPanel.py
@@ -1177,7 +1174,7 @@ pip_virtualenv() {
 
   if [[ $DEV == "ON" ]]; then
     #install dev branch
-    wget https://raw.githubusercontent.com/usmannasir/cyberpanel/$BRANCH_NAME/requirments.txt -O /usr/local/requirments.txt
+    wget https://raw.githubusercontent.com/skitzo2000/cyberpanel/$BRANCH_NAME/requirments.txt -O /usr/local/requirments.txt
     virtualenv -p /usr/bin/python3 /usr/local/CyberPanel
 
     if [[ $UBUNTU_20 == "False" ]]; then

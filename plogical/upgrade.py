@@ -1619,7 +1619,7 @@ imap_folder_list_limit = 0
 
                 os.chdir('/usr/local')
 
-                command = 'git clone https://github.com/usmannasir/cyberpanel'
+                command = 'git clone https://github.com/skitzo2000/cyberpanel'
                 Upgrade.executioner(command, 'Download CyberPanel', 1)
 
                 if os.path.exists('CyberCP'):
@@ -2256,7 +2256,7 @@ vmail
     @staticmethod
     def runSomeImportantBash():
 
-        # Remove invalid crons from /etc/crontab Reference: https://github.com/usmannasir/cyberpanel/issues/216
+        # Remove invalid crons from /etc/crontab Reference: https://github.com/skitzo2000/cyberpanel/issues/216
         command = """sed -i '/CyberCP/d' /etc/crontab"""
         subprocess.call(command, shell=True)
 
@@ -2349,7 +2349,7 @@ vmail
             if os.path.exists('httpd_config.xml'):
                 os.remove('httpd_config.xml')
 
-            command = 'wget https://raw.githubusercontent.com/usmannasir/cyberpanel/stable/install/litespeed/httpd_config.xml'
+            command = 'wget https://raw.githubusercontent.com/skitzo2000/cyberpanel/stable/install/litespeed/httpd_config.xml'
             Upgrade.executioner(command, command, 0)
             #os.remove('/usr/local/lsws/conf/httpd_config.xml')
             #shutil.copy('httpd_config.xml', '/usr/local/lsws/conf/httpd_config.xml')
