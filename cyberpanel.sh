@@ -35,7 +35,8 @@ UBUNTU_20="False"
 WATCHDOG="OFF"
 VIRT_TYPE=""
 MASTER_GIT_URL="github.com/skitzo2000/cyberpanel"
-DO_VOL=""
+DO_VOL=$2
+echo 'Digital Ocean Volume = '.$2
 
 set_git_repos_and_branch() {
   local GIT_DIR
