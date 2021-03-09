@@ -2,7 +2,7 @@
 
 #Add DO_VOL
 
-#curl https://github.com/skitzo2000/cyberpanel/raw/co-brand/install.sh
+#wget -o install.sh  https://github.com/skitzo2000/cyberpanel/raw/co-brand/install.sh
 #chmod +x install.sh
 #./install.sh DO_VOL
 
