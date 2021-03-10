@@ -37,7 +37,7 @@ VIRT_TYPE=""
 MASTER_GIT_URL="github.com/skitzo2000/cyberpanel"
 DO_VOL=$2
 
-if ($DO_VOL!=null)
+if ($DO_VOL!=null); then
   echo 'Digital Ocean Volume = ' $DO_VOL
   cp -rp /home /mnt/$DO_VOL
   rm -r /home
