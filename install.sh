@@ -40,9 +40,7 @@ DO_VOL=$1
 if [ ! -n "$DO_VOL"]  ; then
         echo "no DO volume given"
 else
-
-        echo "DO Volume = " $DO_VOL
-        
+        echo "DO Volume = " $DO_VOL    
 fi
 
 rm -f cyberpanel.sh
